@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update user</title>
+</head>
+<body>
+
+<form th:method="PUT" th:action="@{/admin/edit/}" th:object="${user}">
+    <input type="hidden" th:field="*{id}" id="id"/>
+    <label for="username">Enter Username: </label>
+    <br/>
+    <input type="text" th:field="*{name}" id="username"/>
+    <div th:if="${#fields.hasErrors('username')}" th:errors="*{name}">Name error</div>
+    <br/>
+    <label for="profession">Enter Profession: </label>
+    <br/>
+    <input type="text" th:field="*{profession}" id="profession"/>
+    <div th:if="${#fields.hasErrors('profession')}" th:errors="*{profession}">Profession error</div>
+    <br/>
+
+    <label for="password">Enter Password: </label>
+    <br/>
+    <input type="text" th:field="*{password}" id="password"/>
+    <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</div>
+    <br/>
+    <br/>
+    <tr>
+        <td>
+            <label>Roles:
+                <select size="2" multiple name="listRoles" required="required">
+                    <option selected="selected" value="2">USER</option>
+                    <option value="1">ADMIN</option>
+                </select>
+            </label>
+        </td>
+    </tr>
+    <br>
+    <input type="submit" value=" Update! "/>
+</form>
+</br>
+<input type="button" value="Return to AdminPage"
+       onclick="window.location.href = '/admin'"/>
+<br>
+<br>
+<button class="buttonLogout" onclick="window.location.href = '/logout';">Logout</button>
+
+</body>
+</html>
