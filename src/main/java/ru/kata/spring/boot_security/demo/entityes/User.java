@@ -37,10 +37,10 @@ public class User implements UserDetails {
     }
 
 
-    public User(long id, String name, String profession) {
-        this.id = id;
+    public User(String name, String profession, String password) {
         this.name = name;
         this.profession = profession;
+        this.password = password;
     }
 
     @Override
